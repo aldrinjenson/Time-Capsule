@@ -2,7 +2,7 @@ import time
 from pynput import keyboard, mouse
 from datetime import datetime
 from utils.tokenization_utils import TokenizationUtils
-
+import logging
 
 class TextCapture:
     system_info = None
@@ -21,19 +21,27 @@ class TextCapture:
         self.current_window = None
         self.last_click_time = 0
         self.click_threshold = 1  # Click threshold in seconds
+        self.logger = logging.getLogger(__name__)
+
 
     def start_capture(self):
-        self.key_listener = keyboard.Listener(on_press=self.on_key_press)
-        self.mouse_listener = mouse.Listener(on_click=self.on_mouse_click)
-        self.key_listener.start()
-        self.mouse_listener.start()
-        print("Text Capture: Started")
+        try:
+            self.key_listener = keyboard.Listener(on_press=self.on_key_press)
+            self.mouse_listener = mouse.Listener(on_click=self.on_mouse_click)
+            self.key_listener.start()
+            self.mouse_listener.start()
+            self.logger.info("Text Capture: Started")
+        except Exception as e:
+            self.logger.error(f"Error starting text capture: {str(e)}")
 
     def stop_capture(self):
-        self.key_listener.stop()
-        self.mouse_listener.stop()
-        self.save_current_phrase()  # Save any remaining phrase before stopping
-        print("Text Capture: Stopped")
+        try:
+            self.key_listener.stop()
+            self.mouse_listener.stop()
+            self.save_current_phrase()
+            self.logger.info("Text Capture: Stopped")
+        except Exception as e:
+            self.logger.error(f"Error stopping text capture: {str(e)}")
 
     def on_key_press(self, key):
         current_minute = datetime.now().strftime("%Y-%m-%d_%H%M")
@@ -98,8 +106,11 @@ class TextCapture:
                 "window": active_window
             }
 
-            self.tokenization_utils.process_text_capture(self.current_phrase, timestamp, metadata, context_switch)
-            self.current_phrase = ""  # Reset the current phrase after saving
+            try:
+                self.tokenization_utils.process_text_capture(self.current_phrase, timestamp, metadata, context_switch)
+                self.current_phrase = ""
+            except Exception as e:
+                self.logger.error(f"Error saving current phrase: {str(e)}")
 
 
     def get_active_window(self):

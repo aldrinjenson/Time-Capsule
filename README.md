@@ -4,35 +4,28 @@ Introducing Time Capsule
 
 The open-source, self-hosted AI assistant that empowers you with perfect memory! 🧠💡
 
-Time Capsule is a powerful tool that continuously captures and stores your digital activities, including screen recordings, audio recordings, and typed text. It enables you to search and retrieve any information you've seen, said, or heard on your device, providing you with a comprehensive digital memory.
+Time Capsule is a powerful tool that continuously captures and stores your digital activities, including screen recordings and typed text. It enables you to search and retrieve any information you've seen or typed on your device, providing you with a comprehensive digital memory.
 
 ## ✨ Key Features
 
 - 🔒 Own your data with secure local storage
-- 🖥️ Continuous capture of screen at 0.5 FPS, audio & text
+- 🖥️ Continuous capture of screen at 0.5 FPS & text
 - 🔍 Search & find anything instantly
 - 💻 Customize & extend with open source code
 - 🔐 Encrypted storage for enhanced security
-- ⚡ Optimized performance using FFmpeg & hardware acceleration
+- ⚡ Optimized performance using OpenCV & Tesseract OCR
 - 🐧🪟🍎 Cross-platform support for Windows, Linux, and macOS
 
-# 🚧 Work in Progress 🚧
+## 🚧 Work in Progress 🚧
 
 Time Capsule is currently under active development, with several exciting features in the pipeline.
 
-## 🚀 Current Functionality
+### 🚀 Current Functionality
 
 - **Screen recording**
-
   - Captures screenshots at a fixed interval of 2 seconds (0.5 FPS)
-  - Encodes screenshots directly into H.264 video using FFmpeg
-  - Saves screen recordings in MP4 format at a configurable interval (default: 5 minutes)
-  - Automatically deletes old recordings based on a configurable retention policy
-
-- **Audio recording**
-
-  - Records audio continuously using the system's default audio input device
-  - Saves audio recordings in WAV format at a configurable interval (default: 5 minutes)
+  - Performs OCR on captured screenshots to extract text
+  - Saves extracted text along with timestamps and metadata
 
 - **Typed text capture:**
   - Captures typed text across applications using the pynput library
@@ -40,114 +33,34 @@ Time Capsule is currently under active development, with several exciting featur
   - Saves captured text periodically to JSON files with timestamps and metadata
   - Provides configuration options for enabling/disabling text capture and specifying storage interval
 
-## 📝 Features Awaiting Implementation
+### 📝 Features Awaiting Implementation
 
-- 📝 Optical character recognition (OCR) to extract text from screen recordings
-- 🗣️ Speech-to-text functionality to transcribe audio recordings
 - 🔍 Search functionality to quickly find specific information based on keywords or timestamps
 - 🔐 Data encryption to ensure the security of recorded data
-- 🎨 Intuitive user interface for easy navigation and playback of recordings
+- 🎨 Intuitive user interface for easy navigation and browsing of captured data
 
 ## 💻 Installation Instructions
 
-Follow these detailed steps to get the project running on your local machine, irrespective of your operating system.
+Follow these steps to get the project running on your local machine:
 
-### 1. Clone the Repository
+1. Clone the repository
+2. Create and activate a virtual environment
+3. Install the required dependencies
+4. Configure environment variables
+5. Run the application
 
-First, clone the project to your local machine. Open a terminal (or Command Prompt on Windows) and execute:
-
-```bash
-git clone https://github.com/TheSethRose/time-capsule.git
-```
-
-Navigate into the cloned directory:
-
-```bash
-cd time-capsule
-```
-
-### 2. Create and Activate a Virtual Environment
-
-Creating a virtual environment is crucial for managing project-specific dependencies.
-
-- **For MacOS/Linux/Raspberry Pi:**
-
-  Create the virtual environment:
-
-  ```bash
-  python3 -m venv time-capsule-env
-  ```
-
-  Activate it:
-
-  ```bash
-  source time-capsule-env/bin/activate
-  ```
-
-- **For Windows:**
-
-  Create the virtual environment:
-
-  ```bash
-  python -m venv time-capsule-env
-  ```
-
-  Activate it:
-
-  ```bash
-  .\time-capsule-env\Scripts\activate
-  ```
-
-### 3. Install Dependencies
-
-With your environment activated, install the required Python packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Configure Environment Variables
-
-Configuration is handled through environment variables. Start by copying the example configuration file:
-
-```bash
-cp .env.example .env
-```
-
-Open `.env` in a text editor and adjust the settings to match your development setup.
-
-### 5. Adjust Configuration Settings
-
-Ensure you review the `.env` file thoroughly to tailor the application settings to your preferences and requirements.
-
-### 6. Run the Application
-
-With everything set up, start the application with:
-
-```bash
-python main.py
-```
-
-This will initialize the application based on your `.env` configurations.
-
-### 7. After Installation
-
-After installation, you can now start using the Time Capsule application. The application will automatically start recording and storing data in the specified directories.
-To customize the application further, you can modify the code and configuration files as needed.
+Refer to the [installation guide](docs/installation.md) for detailed instructions.
 
 ## 📂 Project Structure
 
 The Time Capsule project follows a modular and organized structure:
 
 - `src/`: Contains the main source code files
-  - `screen_recording/`: Module for screen recording functionality
-  - `audio_recording/`: Module for audio recording functionality
-  - `ocr/`: Module for optical character recognition (OCR)
+  - `screen_recording/`: Module for screen recording and OCR functionality
   - `text/`: Module for capturing typed text
   - `main.py`: Main entry point of the application
 - `recordings/`: Directory for storing recorded data
   - `screenshots/`: Subdirectory for screen recordings
-  - `audio/`: Subdirectory for audio recordings
   - `text/`: Subdirectory for captured text data
 - `tests/`: Contains unit tests for various modules
 - `utils/`: Contains utility modules
@@ -161,6 +74,8 @@ The Time Capsule project follows a modular and organized structure:
 
 We welcome contributions from the open-source community to help improve and expand the capabilities of Time Capsule. If you'd like to contribute, please refer to our [contribution guidelines](CONTRIBUTING.md) for more information.
 
+
+
 ## 📄 License
 
 Time Capsule is released under the [MIT License](LICENSE).
@@ -172,3 +87,75 @@ For any questions, suggestions, or feedback, please feel free to reach out to me
 ## ❤️ Support
 
 <a href="https://www.buymeacoffee.com/TheSethRose" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee!&emoji=&slug=TheSethRose&button_colour=000000&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee!"></a>
+
+## 📚 Documentation
+
+Detailed documentation for Time Capsule can be found in the [docs](docs/) directory. It includes:
+
+- [Installation Guide](docs/installation.md)
+- [Usage Instructions](docs/usage.md)
+- [API Reference](docs/api_reference.md)
+
+
+## 🛠️ Environment Setup
+
+To set up the development environment for Time Capsule, follow these steps:
+
+1. Install Python 3.9 or higher
+2. Create a virtual environment
+3. Install the required dependencies
+4. Configure environment variables
+
+Refer to the [environment setup guide](docs/environment_setup.md) for detailed instructions.
+
+## 🚀 Deployment
+
+Time Capsule can be deployed on various platforms, including:
+
+- Local machine
+- Cloud servers (e.g., AWS, Google Cloud, DigitalOcean)
+- Containerized environments (e.g., Docker)
+
+Refer to the [deployment guide](docs/deployment.md) for platform-specific instructions.
+
+## 🗺️ Roadmap
+
+The future roadmap for Time Capsule includes:
+
+- Search functionality
+- Data encryption
+- User interface
+- Integration with cloud storage services
+- Mobile app for remote access
+
+Stay tuned for updates and new feature releases!
+
+## 📖 Table of Contents
+
+- [Installation](docs/installation.md)
+- [Usage](docs/usage.md)
+- [API Reference](docs/api_reference.md)
+- [Contributing](CONTRIBUTING.md)
+- [License](LICENSE)
+
+## 🖥️ Usage
+
+To start using Time Capsule, follow these steps:
+
+1. Ensure you have completed the installation and setup process
+2. Open a terminal and navigate to the project directory
+3. Run the command `python main.py`
+4. Time Capsule will start capturing your screen and typed text
+5. Access the captured data in the `recordings/` directory
+
+Refer to the [usage guide](docs/usage.md) for more detailed instructions and advanced configuration options.
+
+## 🧪 Tests
+
+Time Capsule includes a suite of unit tests to ensure the reliability and stability of the codebase. To run the tests:
+
+1. Make sure you have installed the required dependencies
+2. Open a terminal and navigate to the project directory
+3. Run the command `python -m unittest discover tests/`
+
+The test results will be displayed in the terminal, indicating which tests passed or failed.

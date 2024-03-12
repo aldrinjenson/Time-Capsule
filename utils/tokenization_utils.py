@@ -2,6 +2,7 @@ import os
 import json
 import uuid
 import nltk
+import logging
 
 class TokenizationUtils:
     def __init__(self, output_dir):
@@ -9,6 +10,7 @@ class TokenizationUtils:
         self.current_entry = None
         self.token_limit = 2000  # Adjust the token limit based on your model's context window
         nltk.download('punkt')  # Download the required NLTK data
+        self.logger = logging.getLogger(__name__)
 
     def is_token_limit_reached(self, text):
         tokens = nltk.word_tokenize(text)
@@ -44,16 +46,14 @@ class TokenizationUtils:
             self.current_entry = None
 
     def store_entry(self, entry):
-        # Generate a unique filename based on the entry's timestamp
-        filename = f"entry_{entry['timestamp']}.json"
-        filepath = os.path.join(self.output_dir, filename)
-
-        # Tokenize the text and add the tokens to the entry
-        entry["tokens"] = nltk.word_tokenize(entry["text"])
-
-        # Write the entry to a JSON file
-        with open(filepath, 'w') as file:
-            json.dump(entry, file, indent=2)
+        try:
+            filename = f"entry_{entry['timestamp']}.json"
+            filepath = os.path.join(self.output_dir, filename)
+            entry["tokens"] = nltk.word_tokenize(entry["text"])
+            with open(filepath, 'w') as file:
+                json.dump(entry, file, indent=2)
+        except Exception as e:
+            self.logger.error(f"Error storing entry: {str(e)}")
 
     def process_text_capture(self, text, timestamp, metadata=None, context_switch=False):
         self.tokenize_and_store_text(text, timestamp, "Text Capture", metadata, context_switch)
