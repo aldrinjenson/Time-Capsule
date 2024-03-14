@@ -39,17 +39,59 @@ Time Capsule is currently under active development, with several exciting featur
 - 🔐 Data encryption to ensure the security of recorded data
 - 🎨 Intuitive user interface for easy navigation and browsing of captured data
 
-## 💻 Installation Instructions
+
+## 📖 Table of Contents
+
+- [Installation](docs/installation.md)
+- [Usage](docs/usage.md)
+- [API Reference](docs/api_reference.md)
+- [Contributing](CONTRIBUTING.md)
+- [License](LICENSE)
+
+## 🖥️ Usage
+
+To start using Time Capsule, follow these steps:
+
+1. Ensure you have completed the installation and setup process
+2. Open a terminal and navigate to the project directory
+3. Run the command `python main.py`
+4. Time Capsule will start capturing your screen and typed text
+5. Access the captured data in the `recordings/` directory
+
+Refer to the [usage guide](docs/usage.md) for more detailed instructions and advanced configuration options.
+
+## 📚 Documentation
+
+Detailed documentation for Time Capsule can be found in the [docs](docs/) directory. It includes:
+
+- [Installation Guide](docs/installation.md)
+- [Usage Instructions](docs/usage.md)
+- [API Reference](docs/api_reference.md)
+
+## 🛠️ Installation Instructions & Environment Setup
 
 Follow these steps to get the project running on your local machine:
 
-1. Clone the repository
-2. Create and activate a virtual environment
-3. Install the required dependencies
-4. Configure environment variables
-5. Run the application
+1. Install Python 3.9 or higher
+2. Clone the repository
+3. Create and activate a virtual environment
+4. Install the required dependencies
+5. Configure environment variables
+6. 4. Configure environment variables
+7. Run the application
 
 Refer to the [installation guide](docs/installation.md) for detailed instructions.
+Refer to the [environment setup guide](docs/environment_setup.md) for detailed instructions.
+
+## 🚀 Deployment
+
+Time Capsule can be deployed on various platforms, including:
+
+- Local machine
+- Cloud servers (e.g., AWS, Google Cloud, DigitalOcean)
+- Containerized environments (e.g., Docker)
+
+Refer to the [deployment guide](docs/deployment.md) for platform-specific instructions.
 
 ## 📂 Project Structure
 
@@ -74,8 +116,6 @@ The Time Capsule project follows a modular and organized structure:
 
 We welcome contributions from the open-source community to help improve and expand the capabilities of Time Capsule. If you'd like to contribute, please refer to our [contribution guidelines](CONTRIBUTING.md) for more information.
 
-
-
 ## 📄 License
 
 Time Capsule is released under the [MIT License](LICENSE).
@@ -88,36 +128,6 @@ For any questions, suggestions, or feedback, please feel free to reach out to me
 
 <a href="https://www.buymeacoffee.com/TheSethRose" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee!&emoji=&slug=TheSethRose&button_colour=000000&font_colour=ffffff&font_family=Cookie&outline_colour=ffffff&coffee_colour=FFDD00" alt="Buy Me A Coffee!"></a>
 
-## 📚 Documentation
-
-Detailed documentation for Time Capsule can be found in the [docs](docs/) directory. It includes:
-
-- [Installation Guide](docs/installation.md)
-- [Usage Instructions](docs/usage.md)
-- [API Reference](docs/api_reference.md)
-
-
-## 🛠️ Environment Setup
-
-To set up the development environment for Time Capsule, follow these steps:
-
-1. Install Python 3.9 or higher
-2. Create a virtual environment
-3. Install the required dependencies
-4. Configure environment variables
-
-Refer to the [environment setup guide](docs/environment_setup.md) for detailed instructions.
-
-## 🚀 Deployment
-
-Time Capsule can be deployed on various platforms, including:
-
-- Local machine
-- Cloud servers (e.g., AWS, Google Cloud, DigitalOcean)
-- Containerized environments (e.g., Docker)
-
-Refer to the [deployment guide](docs/deployment.md) for platform-specific instructions.
-
 ## 🗺️ Roadmap
 
 The future roadmap for Time Capsule includes:
@@ -125,30 +135,8 @@ The future roadmap for Time Capsule includes:
 - Search functionality
 - Data encryption
 - User interface
-- Integration with cloud storage services
-- Mobile app for remote access
 
 Stay tuned for updates and new feature releases!
-
-## 📖 Table of Contents
-
-- [Installation](docs/installation.md)
-- [Usage](docs/usage.md)
-- [API Reference](docs/api_reference.md)
-- [Contributing](CONTRIBUTING.md)
-- [License](LICENSE)
-
-## 🖥️ Usage
-
-To start using Time Capsule, follow these steps:
-
-1. Ensure you have completed the installation and setup process
-2. Open a terminal and navigate to the project directory
-3. Run the command `python main.py`
-4. Time Capsule will start capturing your screen and typed text
-5. Access the captured data in the `recordings/` directory
-
-Refer to the [usage guide](docs/usage.md) for more detailed instructions and advanced configuration options.
 
 ## 🧪 Tests
 
