@@ -14,10 +14,10 @@
   - [x] Implement a background process for continuous screenshot capture
   - [x] Provide configuration options for screenshot interval & output directory
 
-- [ ] Implement platform-specific libraries to identify & filter out excluded apps & private browser windows
-  - [ ] Research & select appropriate libraries for each supported platform (MacOS, Windows, Linux)
-  - [ ] Integrate the selected libraries into the screen recording module
-  - [ ] Test the exclusion functionality on each platform
+- [X] Implement platform-specific libraries to identify & filter out excluded apps & private browser windows
+  - [X] Research & select appropriate libraries for each supported platform (MacOS, Windows, Linux)
+  - [X] Integrate the selected libraries into the screen recording module
+  - [X] Test the exclusion functionality on each platform
 
 - [x] Write tests for the `ScreenRecorder` class in `tests/test_screen_recording.py`
 
@@ -50,7 +50,7 @@
 
 ## Optical Character Recognition (OCR)
 
-- [ ] Implement the `OCRProcessor` class in `src/ocr/ocr_processor.py`
+- [ ] Implement the `OCRProcessor` class
   - [ ] Use Tesseract OCR library to extract text from captured screenshots
   - [ ] Preprocess screenshots using OpenCV to enhance text visibility
     - [ ] Investigate & implement suitable image preprocessing techniques
